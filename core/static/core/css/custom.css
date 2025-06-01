@@ -13,11 +13,11 @@
   --text-color: #333333;
   
   /* Cores para os campos do formulário */
-  --form-yellow: #ffeeba;
-  --form-purple: #e6e6fa;
-  --form-green: #d1e7dd;
-  --form-orange: #ffe5d9;
-  --form-button: #5a7d7c;
+  --form-yellow: #a6a6a6;
+  --form-purple: #a6a6a6;
+  --form-green: #a6a6a6;
+  --form-orange: #a6a6a6;
+  --form-button: #a6a6a6;
 }
 
 body {
