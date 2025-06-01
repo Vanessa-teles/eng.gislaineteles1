@@ -10,8 +10,6 @@
         <h1>Proteja seu investimento com vistorias técnicas especializadas</h1>
         <p>Evite prejuízos na entrega do seu imóvel e garanta a segurança do seu condomínio com laudos técnicos profissionais</p>
         <ul class="actions special">
-            <li><a href="{% url 'contato' %}" class="button primary large">Agende sua vistoria agora</a></li>
-            <li><a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." class="button alt large"><i class="fab fa-whatsapp"></i> Fale pelo WhatsApp</a></li>
         </ul>
     </div>
 </section>
@@ -32,7 +30,7 @@
             </div>
             <div class="benefit-item">
                 <i class="fas fa-home"></i>
-                <span>+100 imóveis vistoriados</span>
+                <span>+1000 imóveis vistoriados</span>
             </div>
             <div class="benefit-item">
                 <i class="fas fa-file-alt"></i>
@@ -59,8 +57,8 @@
                     <li><i class="fas fa-check"></i> Análise de esquadrias e vedações</li>
                     <li><i class="fas fa-check"></i> Documentação fotográfica detalhada</li>
                     <li><i class="fas fa-check"></i> Relatório técnico para construtora</li>
+                    <li><i class="fas fa-check"></i> Relatório técnico com validade jurídica</li>
                 </ul>
-                <p class="service-price">Investimento a partir de R$ XXX,XX</p>
                 <a href="{% url 'contato' %}" class="button alt">Solicitar orçamento</a>
             </section>
             <section class="service-card">
@@ -75,6 +73,7 @@
                     <li><i class="fas fa-check"></i> Verificação de sistemas prediais</li>
                     <li><i class="fas fa-check"></i> Orientação para manutenções preventivas</li>
                     <li><i class="fas fa-check"></i> Suporte técnico para assembleias</li>
+                    <li><i class="fas fa-check"></i> fiscalização de reformas em apartamentos</li>
                 </ul>
                 <a href="{% url 'contato' %}" class="button alt">Solicitar orçamento</a>
             </section>
@@ -100,11 +99,40 @@
                     <h3>Não deixe para depois!</h3>
                     <p>Problemas construtivos identificados tardiamente podem gerar custos muito maiores. Agende sua vistoria hoje mesmo e garanta tranquilidade e economia.</p>
                     <a href="{% url 'contato' %}" class="button primary large">Agendar vistoria</a>
-                    <p class="small-text">Ou ligue: <strong>(11) 98579-6256</strong></p>
                 </div>
             </section>
         </div>
     </section>
+
+<!-- Image Gallery Section -->
+				<section class="box special">
+					<header>
+						<h3>Galeria de Projetos</h3>
+						<p>Confira alguns dos nossos trabalhos recentes</p>
+					</header>
+					<div class="image-gallery">
+						<div class="gallery-row">
+							<div class="gallery-item">
+								<img src="{% static 'core/images/pessoal1.jpg' %}" alt="Vistoria de apartamento" />
+								<div class="gallery-caption">Vistoria de entrega de chaves - Residencial Vila Nova</div>
+							</div>
+							<div class="gallery-item">
+								<img src="{% static 'core/images/pessoal1.jpg' %}" alt="Laudo técnico" />
+								<div class="gallery-caption">Laudo técnico para infiltração - Condomínio Parque das Flores</div>
+							</div>
+						</div>
+						<div class="gallery-row">
+							<div class="gallery-item">
+								<img src="{% static 'core/images/pessoal1.jpg' %}" alt="Vistoria de condomínio" />
+								<div class="gallery-caption">Vistoria para síndico - Edifício Costa Azul</div>
+							</div>
+							<div class="gallery-item">
+								<img src="{% static 'core/images/pessoal1.jpg' %}" alt="Análise estrutural" />
+								<div class="gallery-caption">Análise estrutural - Residencial Jardim das Palmeiras</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
     <!-- Testimonials Section -->
     <section class="box special">
@@ -160,13 +188,13 @@
     <div class="row box">
         <div class="col-3 col-12-mobilep">
             <div>
-                <span class="image"> <img style="width: 110%; height: auto; float: none; border-radius: 50%;" src="{% static 'core/images/engenheira.jpg' %}" alt="Engenheira Gislaine Teles"/></span>
+                <span class="image"> <img style="width: 110%; height: auto; float: none; border-radius: 50%;" src="{% static 'core/images/pessoal1.jpg' %}" alt="Engenheira Gislaine Teles"/></span>
             </div>
         </div>
         <div class="col-9 col-12-mobilep">
             <h3>Sobre a Engenheira</h3>
             <p>Gislaine Teles é uma engenheira civil pós-graduada em Engenharia Diagnóstica e Documentação Legal, com mais de 5 anos de experiência em vistorias técnicas e laudos especializados.</p>
-            <p>Com expertise em identificação de problemas construtivos em condomínios e residências, já realizou mais de 100 vistorias técnicas, ajudando proprietários a garantirem seus direitos e síndicos a manterem seus condomínios seguros e valorizados.</p>
+            <p>Com expertise em identificação de problemas construtivos em condomínios e residências, já realizou mais de 1000 vistorias técnicas, ajudando proprietários a garantirem seus direitos e síndicos a manterem seus condomínios seguros e valorizados.</p>
             <ul class="credentials-list">
                 <li><i class="fas fa-graduation-cap"></i> Pós-graduação em Engenharia Diagnóstica</li>
                 <li><i class="fas fa-id-card"></i> CREA nº XXXXX</li>
@@ -175,56 +203,12 @@
         </div>
     </div>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="box special">
-        <header>
-            <h3>Entre em contato</h3>
-            <p>Preencha o formulário abaixo para solicitar um orçamento ou agendar sua vistoria</p>
-        </header>
-        <form method="post" action="{% url 'contato' %}" class="contact-form">
-            {% csrf_token %}
-            <div class="row gtr-50 gtr-uniform">
-                <div class="col-6 col-12-mobilep">
-                    <input type="text" name="nome" id="nome" placeholder="Nome completo" required />
-                </div>
-                <div class="col-6 col-12-mobilep">
-                    <input type="email" name="email" id="email" placeholder="Email" required />
-                </div>
-                <div class="col-6 col-12-mobilep">
-                    <input type="text" name="telefone" id="telefone" placeholder="Telefone/WhatsApp" required />
-                </div>
-                <div class="col-6 col-12-mobilep">
-                    <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
-                </div>
-                <div class="col-12">
-                    <input type="text" name="assunto" id="assunto" placeholder="Assunto" required />
-                </div>
-                <div class="col-12">
-                    <textarea name="mensagem" id="mensagem" placeholder="Descreva sua necessidade" rows="5" required></textarea>
-                </div>
-                <div class="col-12">
-                    <ul class="actions special">
-                        <li><input type="submit" value="Enviar mensagem" class="button primary large" /></li>
-                    </ul>
-                </div>
-                <div class="col-12 text-center">
-                    {% if messages %}
-                        {% for message in messages %}
-                        <h4 style="text-align: center;" class="{{ message.tags }} {% if message.tags %} {% endif %}"> {{ message }} </h4>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-        </form>
-    </section>
-
     <!-- Final CTA -->
     <section class="box special cta-final">
         <h3>Proteja seu investimento com uma vistoria profissional</h3>
         <p>Não deixe para depois! Problemas construtivos identificados tardiamente podem gerar custos muito maiores.</p>
         <ul class="actions special">
             <li><a href="{% url 'contato' %}" class="button primary large">Agendar vistoria agora</a></li>
-            <li><a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." class="button alt large"><i class="fab fa-whatsapp"></i> Falar pelo WhatsApp</a></li>
         </ul>
     </section>
 
