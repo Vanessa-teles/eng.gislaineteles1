@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gislaine-engenharia
+    runtime: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn gislaine_engenharia.wsgi:application
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: RENDER
+        value: true
