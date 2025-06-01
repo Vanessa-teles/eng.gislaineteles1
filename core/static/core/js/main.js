@@ -1,108 +1,51 @@
-/*
-	Main JS for Gislaine Teles Engenharia
-*/
+// Arquivo JS principal para o site da Gislaine Teles
+document.addEventListener('DOMContentLoaded', function() {
+    // Animação suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-(function($) {
+    // Destacar o item de menu ativo
+    const currentLocation = window.location.pathname;
+    const menuItems = document.querySelectorAll('#nav ul li a');
+    
+    menuItems.forEach(item => {
+        const href = item.getAttribute('href');
+        if (currentLocation.endsWith(href)) {
+            item.style.backgroundColor = 'var(--primary-color)';
+            item.style.color = 'white';
+        }
+    });
 
-	var	$window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$banner = $('#banner');
+    // Efeito de fade-in para elementos ao rolar a página
+    const fadeElements = document.querySelectorAll('.service-description, .portfolio-image');
+    
+    function checkFade() {
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('visible');
+            }
+        });
+    }
 
-	// Breakpoints.
-		breakpoints({
-			wide:      [ '1281px',  '1680px' ],
-			normal:    [ '981px',   '1280px' ],
-			narrow:    [ '737px',   '980px'  ],
-			narrower:  [ '737px',   '840px'  ],
-			mobile:    [ '481px',   '736px'  ],
-			mobilep:   [ null,      '480px'  ]
-		});
+    // Adicionar classe para estilização CSS
+    fadeElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transition = 'opacity 0.5s ease-in-out';
+    });
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
-
-	// Header.
-		$banner.each(function() {
-
-			var $this = $(this),
-				$header = $('#header');
-
-			if ($header.hasClass('alt')) {
-				$window.on('resize', function() { $window.trigger('scroll'); });
-
-				$this.scrollex({
-					bottom:		$header.outerHeight(),
-					terminate:	function() { $header.removeClass('alt'); },
-					enter:		function() { $header.addClass('alt'); },
-					leave:		function() { $header.removeClass('alt'); }
-				});
-			}
-
-		});
-
-	// Smooth scroll for internal links
-	$('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
-		if (
-			location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && 
-			location.hostname == this.hostname
-		) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-			if (target.length) {
-				event.preventDefault();
-				$('html, body').animate({
-					scrollTop: target.offset().top - 70
-				}, 1000);
-			}
-		}
-	});
-
-	// Mobile menu toggle
-	$('.mobile-menu-toggle').on('click', function() {
-		$('#nav').toggleClass('nav-visible');
-	});
-
-	// Form validation enhancement
-	$('form').on('submit', function() {
-		var valid = true;
-		$(this).find('input[required], textarea[required]').each(function() {
-			if (!$(this).val()) {
-				valid = false;
-				$(this).addClass('error-input');
-			} else {
-				$(this).removeClass('error-input');
-			}
-		});
-		
-		if (!valid) {
-			alert('Por favor, preencha todos os campos obrigatórios.');
-			return false;
-		}
-		return true;
-	});
-
-	// Input focus effects
-	$('input, textarea').focus(function() {
-		$(this).parent().addClass('input-focused');
-	}).blur(function() {
-		if (!$(this).val()) {
-			$(this).parent().removeClass('input-focused');
-		}
-	});
-
-	// WhatsApp button pulse animation
-	$('.logo-float').hover(
-		function() {
-			$(this).css('animation', 'none');
-		},
-		function() {
-			$(this).css('animation', 'pulse 2s infinite');
-		}
-	);
-
-})(jQuery);
+    window.addEventListener('scroll', checkFade);
+    checkFade(); // Verificar elementos visíveis no carregamento inicial
+});
