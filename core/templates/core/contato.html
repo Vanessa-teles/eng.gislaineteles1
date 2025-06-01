@@ -1,9 +1,18 @@
-{% extends 'core/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}Contato - Gislaine Teles Engenharia{% endblock %}
 
 {% block content %}
+<!-- Carrega o CSS específico para esta página -->
+<link rel="stylesheet" href="{% static 'core/css/contact_additions.css' %}">
+
+<!-- Restante do seu conteúdo HTML aqui -->
+<div class="contact-page">
+    ...
+</div>
+{% endblock %}
+
 <!-- Banner / Hero Section -->
 <section id="banner" class="hero-section contact-hero">
     <div class="hero-content">
