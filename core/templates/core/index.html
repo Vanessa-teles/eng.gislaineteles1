@@ -186,23 +186,24 @@
     </section>
 
     <!-- About Section -->
-    <div class="row box">
-        <div class="col-3 col-12-mobilep">
-            <div>
-                <span class="image"> <img style="width: 100%; height: auto; float: none; border-radius: 50%;" src="{% static 'core/images/pessoal1.jpg' %}" alt="Engenheira Gislaine Teles"/></span>
-            </div>
-        </div>
-        <div class="col-9 col-12-mobilep">
-            <h3>Sobre a Engenheira</h3>
-            <p>Gislaine Teles é uma engenheira civil pós-graduada em Engenharia Diagnóstica e Documentação Legal, com mais de 5 anos de experiência em vistorias técnicas e laudos especializados.</p>
-            <p>Com expertise em identificação de problemas construtivos em condomínios e residências, já realizou mais de 1000 vistorias técnicas, ajudando proprietários a garantirem seus direitos e síndicos a manterem seus condomínios seguros e valorizados.</p>
-            <ul class="credentials-list">
-                <li><i class="fas fa-graduation-cap"></i> Pós-graduação em Engenharia Diagnóstica</li>
-                <li><i class="fas fa-id-card"></i> CREA nº XXXXX</li>
-                <li><i class="fas fa-certificate"></i> Especialista em vistorias e laudos técnicos</li>
-            </ul>
-        </div>
+<section class="box special">
+  <div class="about-section">
+    <div class="about-image-container">
+      <img class="about-image" src="{% static 'core/images/pessoal1.jpg' %}" alt="Engenheira Gislaine Teles"/>
     </div>
+    <div class="about-content">
+      <h3>Sobre a Engenheira</h3>
+      <p>Gislaine Teles é uma engenheira civil pós-graduada em Engenharia Diagnóstica e Documentação Legal, com mais de 5 anos de experiência em vistorias técnicas e laudos especializados.</p>
+      <p>Com expertise em identificação de problemas construtivos em condomínios e residências, já realizou mais de 1000 vistorias técnicas, ajudando proprietários a garantirem seus direitos e síndicos a manterem seus condomínios seguros e valorizados.</p>
+      <ul class="credentials-list">
+        <li><i class="fas fa-graduation-cap"></i> Pós-graduação em Engenharia Diagnóstica</li>
+        <li><i class="fas fa-id-card"></i> CREA nº XXXXX</li>
+        <li><i class="fas fa-certificate"></i> Especialista em vistorias e laudos técnicos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
     <!-- Final CTA -->
     <section class="box special cta-final">
@@ -212,18 +213,6 @@
             <li><a href="{% url 'contato' %}" class="button primary large">Agendar vistoria agora</a></li>
         </ul>
     </section>
-
-<!-- Footer -->
-		<footer class="footer">
-			<div class="social-links">
-				<a href="https://www.instagram.com/eng.gislaineteles" target="_blank"><i class="fab fa-instagram"></i></a>
-				<a href="https://www.linkedin.com/in/gislaine-teles-/" target="_blank"><i class="fab fa-linkedin"></i></a>
-				<a href="mailto:gislaine.teles.eng@gmail.com"><i class="fas fa-envelope"></i></a>
-				<a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." target="_blank"><i class="fab fa-whatsapp"></i></a>
-			</div>
-			<div class="copyright">
-				&copy; Gislaine Teles. Todos os direitos reservados. CREA nº XXXXX
-			</div>
 
 </section>
 {% endblock content %}

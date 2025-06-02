@@ -6,10 +6,10 @@
   --secondary-color: #598392;
   --highlight-color: #0d3b49;
   --decorative-color: #e6b000;
-  --light-bg: #f5f7f9;
+  --light-bg: #e4e4e4;
   --dark-bg: #0d3b49;
   --text-color: #333333;
-  --contact-bg: #f5f7f9;
+  --contact-bg: #9c9c9c;
   
   /* Cores para os campos do formulário */
   --form-yellow: #ffeeba;
@@ -28,13 +28,44 @@ body {
 }
 
 /* Ajuste para a foto redonda */
-.image img[style*="border-radius: 50%"] {
-  max-width: 150px !important; /* Reduz o tamanho máximo da imagem */
+.about-image {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   display: block;
-  border-radius: 50% !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Layout para desktop */
+@media (min-width: 769px) {
+  .about-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .about-image-container {
+    flex: 0 0 150px;
+  }
+  
+  .about-content {
+    flex: 1;
+  }
+}
+
+/* Layout para mobile */
+@media (max-width: 768px) {
+  .about-section {
+    display: block;
+  }
+  
+  .about-image-container {
+    margin-bottom: 20px;
+  }
+}
+
 
 /* Header e navegação */
 #header {
@@ -154,9 +185,9 @@ body {
 /* Hero section com imagem de fundo */
 .hero-section-background {
   text-align: center;
-  padding: 8rem 0;
+   padding: 4rem 0; /* Reduzido de 8rem para 4rem */
   position: relative;
-  background-image: url('core/images/img.banner.res.jpg');
+  background-image: url('/core/static/core/images/imag.banner.res.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -199,7 +230,7 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
   .hero-section-background {
-    padding: 6rem 0;
+    padding: 3rem 0; /* Reduzido de 6rem para 3rem */
   }
   
   .hero-section-background h1 {
@@ -248,22 +279,48 @@ body {
   padding: 2rem 0;
   text-align: center;
   margin-top: 3rem;
+  width: 100%; /* Garante que o footer ocupe toda a largura disponível */
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  padding: 0 2rem;
 }
 
 .social-links {
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center; /* Centraliza os ícones horizontalmente */
+  gap: 1.5rem; /* Espaçamento entre os ícones */
 }
 
 .social-links a {
-  margin: 0 0.5rem;
   color: var(--primary-color);
   font-size: 1.5rem;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-dark);
 }
 
 .copyright {
   font-size: 0.9rem;
   color: #777;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+  }
+  
+  .footer .container {
+    padding: 0 1rem;
+  }
 }
 
 /* WhatsApp Floating Button */
