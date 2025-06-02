@@ -4,8 +4,8 @@
 {% block title %}Vistorias Técnicas Especializadas - Eng. Gislaine Teles{% endblock %}
 
 {% block content %}
-<<!-- Banner / Hero Section com imagem de fundo online -->
-<section id="banner" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' ); background-size: cover; background-position: center; padding: 4rem 0; position: relative; text-align: center;">
+<!-- Banner / Hero Section com sua imagem -->
+<section id="banner" style="background-image: url('{% static 'core/images/banner.jpg' %}'); background-size: cover; background-position: center; padding: 4rem 0; position: relative; text-align: center;">
     <!-- Sobreposição escura para melhorar a legibilidade do texto -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);"></div>
     
@@ -16,6 +16,7 @@
         <a href="{% url 'contato' %}" class="button primary large">Agendar vistoria</a>
     </div>
 </section>
+
 
 
 
@@ -132,7 +133,7 @@
                 <div class="gallery-caption">Vistoria para síndico - Edifício Costa Azul</div>
             </div>
             <div class="gallery-item">
-                <img src="{% static 'core/images/pessoal1.jpg' %}" alt="Análise estrutural" style="max-width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+                <img src="{% static 'core/images/estrutural.jpg' %}" alt="Análise estrutural" style="max-width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
                 <div class="gallery-caption">Análise estrutural - Residencial Jardim das Palmeiras</div>
             </div>
         </div>
@@ -195,7 +196,7 @@
   <div class="about-section">
     <div class="about-image-container">
       <!-- Para a imagem redonda -->
-<img src="{% static 'core/images/pessoal1.jpg' %}" alt="Engenheira Gislaine Teles" 
+<img src="{% static 'core/images/foto.redonda.jpg' %}" alt="Engenheira Gislaine Teles" 
      style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: inline-block;" />
         </div>
     </div>
@@ -205,7 +206,7 @@
       <p>Com expertise em identificação de problemas construtivos em condomínios e residências, já realizou mais de 1000 vistorias técnicas, ajudando proprietários a garantirem seus direitos e síndicos a manterem seus condomínios seguros e valorizados.</p>
       <ul class="credentials-list">
         <li><i class="fas fa-graduation-cap"></i> Pós-graduação em Engenharia Diagnóstica</li>
-        <li><i class="fas fa-id-card"></i> CREA nº XXXXX</li>
+        <li><i class="fas fa-id-card"></i> CREA nº 5070847342-SP</li>
         <li><i class="fas fa-certificate"></i> Especialista em vistorias e laudos técnicos</li>
       </ul>
     </div>

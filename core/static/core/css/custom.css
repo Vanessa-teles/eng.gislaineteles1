@@ -12,11 +12,11 @@
   --contact-bg: #9c9c9c;
   
   /* Cores para os campos do formulário */
-  --form-yellow: #ffeeba;
-  --form-purple: #e6e6fa;
-  --form-green: #d1e7dd;
-  --form-orange: #ffe5d9;
-  --form-button: #5a7d7c;
+  --form-yellow: rgb(237, 237, 237);
+  --form-purple: rgb(237, 237, 237);
+  --form-green: rgb(237, 237, 237);
+  --form-orange: rgb(237, 237, 237);
+  --form-button: rgb(237, 237, 237);
 }
 
 body {
@@ -79,6 +79,22 @@ body {
 #nav ul li a:hover {
   background-color: var(--primary-color);
   color: white;
+}
+
+/* Adicione esta regra ao seu arquivo CSS */
+.button.primary.large {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Ou se precisar de mais controle: */
+.container-botao {
+    text-align: center;
+}
+
+.botao-centralizado {
+    display: inline-block;
+    margin: 0 auto;
 }
 
 /* Container principal */
