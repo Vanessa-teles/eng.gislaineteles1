@@ -28,43 +28,12 @@ body {
 }
 
 /* Ajuste para a foto redonda */
-.about-image {
-  width: 150px !important;
-  height: 150px !important;
-  border-radius: 50% !important;
-  object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.image img[style*="border-radius: 50%"] {
+  max-width: 150px !important; /* Reduz o tamanho máximo da imagem */
   margin: 0 auto;
   display: block;
-}
-
-/* Layout para desktop */
-@media (min-width: 769px) {
-  .about-section {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-  
-  .about-image-container {
-    flex: 0 0 150px;
-  }
-  
-  .about-content {
-    flex: 1;
-  }
-}
-
-/* Layout para mobile */
-@media (max-width: 768px) {
-  .about-section {
-    display: block;
-  }
-  
-  .about-image-container {
-    margin-bottom: 20px;
-  }
-}
+  border-radius: 50% !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 
 /* Header e navegação */
@@ -185,27 +154,18 @@ body {
 /* Hero section com imagem de fundo */
 .hero-section-background {
   text-align: center;
-   padding: 4rem 0; /* Reduzido de 8rem para 4rem */
+  padding: 8rem 0; /* Mantive o padding original maior para melhor aparência */
   position: relative;
-  background-image: url('/core/static/core/images/imag.banner.res.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('../images/imag.banner.res.jpg') center/cover no-repeat;
   color: white;
-  position: relative;
+  min-height: 500px; /* Adicionei uma altura mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-section-background::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Sobreposição escura para melhorar a legibilidade do texto */
-}
-
-.hero-section-background .hero-content {
+.hero-content {
   position: relative;
   z-index: 2;
   max-width: 800px;
@@ -279,20 +239,28 @@ body {
   padding: 2rem 0;
   text-align: center;
   margin-top: 3rem;
-  width: 100%; /* Garante que o footer ocupe toda a largura disponível */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza todo o conteúdo verticalmente */
 }
 
 .footer .container {
   max-width: 1200px;
-  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  width: 100%; /* Garante que o container ocupe a largura máxima disponível */
+  margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens internos */
 }
 
 .social-links {
   margin-bottom: 1rem;
   display: flex;
-  justify-content: center; /* Centraliza os ícones horizontalmente */
-  gap: 1.5rem; /* Espaçamento entre os ícones */
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%; /* Garante que o container dos ícones ocupe toda a largura */
 }
 
 .social-links a {
@@ -300,6 +268,9 @@ body {
   font-size: 1.5rem;
   text-decoration: none;
   transition: color 0.3s ease;
+  display: inline-flex; /* Melhora o alinhamento dos ícones */
+  align-items: center;
+  justify-content: center;
 }
 
 .social-links a:hover {
@@ -310,6 +281,7 @@ body {
   font-size: 0.9rem;
   color: #777;
   text-align: center;
+  width: 100%; /* Garante que o texto ocupe toda a largura */
 }
 
 /* Responsividade */
@@ -393,4 +365,5 @@ body {
   .main-box {
     padding: 1.5rem;
   }
+}
 }
