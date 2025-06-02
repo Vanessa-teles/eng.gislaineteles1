@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.urls import reverse
 from .forms import ContatoForm
 
 def index(request):
@@ -11,10 +10,16 @@ def contato(request):
         form = ContatoForm(request.POST)
         if form.is_valid():
             try:
-                form.send_mail()
+                form.sendEmail()
                 messages.success(request, 'E-mail enviado com sucesso!')
-                return redirect(reverse('contato'))
+                return redirect('contato')
             except Exception as e:
-                messages.error(request, f'Erro ao enviar e-mail: {str(e)}')
-                return redirect(reverse('contato'))
-    return render(request, 'core/contato.html')
+                messages.error(request, f'Erro ao enviar e-mail: {e}')
+                return redirect('contato')
+    else:
+        form = ContatoForm()
+    
+    context = {
+        'form': form
+    }
+    return render(request, 'core/contato.html', context)
