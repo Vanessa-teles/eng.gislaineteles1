@@ -14,7 +14,7 @@
 
 			<!-- Header -->
 			<header id="header" class="alt">
-				<a style="text-decoration: none; border: none;" href="{% url 'index' %}"><img style="width: 10%; min-width: 80px;" src="{% static 'core/images/logo-placeholder.png' %}" alt="Logo" /></a>
+				<a style="text-decoration: none; border: none;" href="{% url 'index' %}"><img style="width: 10%; min-width: 80px;" src="{% static 'core/images/logo-removebg-preview.png' %}" alt="Logo" /></a>
 				<nav id="nav">
 				</nav>
 			</header>
@@ -24,18 +24,15 @@
             {% endblock content %}
             
             <!-- Footer -->
-			<footer id="footer">
-                <ul class="icons">
-                    <h3>Redes sociais</h3>
-                    <li><a href="https://www.instagram.com/eng.gislaineteles" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
-                    <li><a href="https://www.linkedin.com/in/gislaine-teles-/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="mailto:gislaine.teles.eng@gmail.com" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-                    <li><a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." class="icon brands fa-whatsapp" target="_blank"><span class="label">WhatsApp</span></a></li>
-                </ul>
-				<ul class="copyright">
-					<li>&copy; Gislaine Teles. Todos os direitos reservados.</li>
-					<li>CREA nº XXXXX</li>
-				</ul>
+			<footer class="footer">
+				<div class="social-links">
+					<a href="https://www.instagram.com/eng.gislaineteles" target="_blank"><i class="fab fa-instagram"></i></a>
+					<a href="mailto:gislaine.teles.eng@gmail.com"><i class="fas fa-envelope"></i></a>
+					<a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." target="_blank"><i class="fab fa-whatsapp"></i></a>
+				</div>
+				<div class="copyright">
+					&copy; Gislaine Teles. Todos os direitos reservados. CREA nº XXXXX
+				</div>
 			</footer>
 
 			<!-- WhatsApp Floating Button -->

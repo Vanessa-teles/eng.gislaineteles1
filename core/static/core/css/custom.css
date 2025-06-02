@@ -29,9 +29,11 @@ body {
 
 /* Ajuste para a foto redonda */
 .image img[style*="border-radius: 50%"] {
-  max-width: 250px !important; /* Reduz o tamanho máximo da imagem */
+  max-width: 150px !important; /* Reduz o tamanho máximo da imagem */
   margin: 0 auto;
   display: block;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Header e navegação */
@@ -107,74 +109,19 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Container principal */
-.contact-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Linha com duas colunas */
-.contact-row {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Colunas */
-.contact-column {
-  flex: 1;
-}
-
-/* Estilo do formulário (seu código original adaptado) */
+/* Formulário de contato */
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form input[type="tel"],
 .contact-form select,
 .contact-form textarea {
-  border: 1px solid #ddd;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 4px;
   padding: 0.8rem;
   font-size: 16px;
   width: 100%;
   margin-bottom: 1rem;
-  background-color: #f9f9f9;
-  transition: border 0.3s ease;
-}
-
-.contact-form input[type="text"]:focus,
-.contact-form input[type="email"]:focus,
-.contact-form input[type="tel"]:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  border-color: #1a5f7a;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(26, 95, 122, 0.2);
-}
-
-/* Botão de submit */
-.contact-form input[type="submit"] {
-  background-color: #1a5f7a;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  width: auto;
-}
-
-.contact-form input[type="submit"]:hover {
-  background-color: #124559;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .contact-row {
-    flex-direction: column;
-    gap: 0;
-  }
 }
 
 /* Layout de colunas */
@@ -204,29 +151,66 @@ body {
   text-align: center;
 }
 
-/* Hero section */
-.hero-section {
+/* Hero section com imagem de fundo */
+.hero-section-background {
   text-align: center;
-  padding: 3rem 0;
+  padding: 8rem 0;
+  position: relative;
+  background-image: url('core/images/img.banner.res.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
 }
 
-.hero-title {
+.hero-section-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Sobreposição escura para melhorar a legibilidade do texto */
+}
+
+.hero-section-background .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-section-background h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-.hero-subtitle {
+.hero-section-background p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: #666;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-.divider {
-  width: 100px;
-  height: 2px;
-  background-color: var(--accent-color);
-  margin: 2rem auto;
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-section-background {
+    padding: 6rem 0;
+  }
+  
+  .hero-section-background h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section-background p {
+    font-size: 1rem;
+  }
 }
+
 
 /* Portfolio section */
 .portfolio-section {
