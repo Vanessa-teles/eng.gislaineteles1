@@ -14,7 +14,8 @@
         <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Proteja seu investimento com vistoria técnica especializada</h1>
         <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">Evite prejuízos na entrega do seu imóvel e garanta a segurança do seu condomínio com laudo técnico profissional</p>
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; width: 100%; box-sizing: border-box;">
-    <a href="{% url 'contato' %}" class="button primary large" style="display: inline-block; text-align: center; width: auto; min-width: 200px;">
+   <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
+        <a href="{% url 'contato' %}" class="button primary large" style="display: inline-block; text-align: center; width: auto; min-width: 200px;">
         Agendar vistoria agora
     </a>
 </div>
@@ -110,6 +111,7 @@
                 <div class="cta-content">
                     <h3>Não deixe para depois!</h3>
                     <p>Problemas construtivos identificados tardiamente podem gerar custos muito maiores. Agende sua vistoria hoje mesmo e garanta tranquilidade e economia.</p>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
                     <a href="{% url 'contato' %}" class="button primary large">Agendar vistoria</a>
                 </div>
             </section>
@@ -129,7 +131,7 @@
                 <div class="gallery-caption">Vistoria de entrega de chaves - Residencial Vila Nova</div>
             </div>
             <div class="gallery-item">
-                <img src="{% static 'core/images/pessoal1.jpg' %}" alt="Laudo técnico" style="max-width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+                <img src="{% static 'core/images/laudo-1.jpg' %}" alt="Laudo técnico" style="max-width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
                 <div class="gallery-caption">Laudo técnico de infiltração - Villa Leopoldina</div>
             </div>
         </div>
@@ -139,7 +141,7 @@
                 <div class="gallery-caption">projeto estrutural - city América</div>
             </div>
             <div class="gallery-item">
-                <img src="{% static 'core/images/estrutural-2.jpg' %}" alt="Análise estrutural" style="max-width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+                <img src="{% static 'core/images/estrutura-2.jpg' %}" alt="Análise estrutural" style="max-width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
                 <div class="gallery-caption">Análise estrutural - Condomínio Residencial Jardim Europa</div>
             </div>
         </div>
@@ -219,13 +221,42 @@
   </div>
 </section>
 
+<!-- Video Section -->
+<section class="box special">
+    <header>
+        <h3>Conheça Nosso Trabalho</h3>
+        <p>Assista ao vídeo para entender melhor nossos serviços de vistoria</p>
+    </header>
+    
+    <div style="display: flex; justify-content: center; margin: 2rem 0;">
+        <div style="width: 100%; max-width: 800px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
+            <!-- Vídeo do YouTube como exemplo -->
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                    src="https://www.youtube.com/embed/C0DPdy98e4c" 
+                    title="Vídeo de Exemplo" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            <!-- Legenda do vídeo (opcional ) -->
+            <div style="background-color:rgb(255, 255, 255); padding: 1rem; text-align: center;">
+                <p style="margin: 0; color: #333; font-size: 0.9rem;">Vistoria técnica em ação: garantindo a qualidade do seu imóvel</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Final CTA -->
     <section class="box special cta-final">
         <h3>Proteja seu investimento com uma vistoria profissional</h3>
         <p>Não deixe para depois! Problemas construtivos identificados tardiamente podem gerar custos muito maiores.</p>
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; width: 100%; box-sizing: border-box;">
-    <a href="{% url 'contato' %}" class="button primary large" style="display: inline-block; text-align: center; width: auto; min-width: 200px;">
+        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
+        <a href="{% url 'contato' %}" class="button primary large" style="display: inline-block; text-align: center; width: auto; min-width: 200px;">
         Agendar vistoria
     </a>
 </div>
