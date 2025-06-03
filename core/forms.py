@@ -38,3 +38,4 @@ class ContatoForm(forms.Form):
             headers={'Reply-To': email}
         )
         mail.send()
+    print('Mensagem enviada')
