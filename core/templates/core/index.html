@@ -149,15 +149,31 @@
                     <li><i class="fas fa-check"></i> Laudos para seguradoras</li>
                     <li><i class="fas fa-check"></i> Projetos estruturais corretivos</li>
                 </ul>
-                <a href="{% url 'contato' %}" class="button alt" style="background-color: #1a5f7a; color: white; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 4px; display: inline-block; font-weight: 500; transition: background-color 0.3s ease;">Solicitar orçamento</a>
-            </section>
+                <a href="{% url 'contato' %}" 
+   class="button primary large" 
+   style="display: flex; /* Transforma o link em container flex */
+          align-items: center; /* Centraliza verticalmente o texto */
+          justify-content: center; /* Centraliza horizontalmente o texto */
+          text-align: center; /* Mantém por segurança */
+          width: auto; 
+          min-width: 200px;
+          /* Adicione aqui outros estilos visuais do seu botão */
+          padding: 10px 20px; /* Exemplo */
+          background-color: #124559; /* Exemplo */
+          color: white; /* Exemplo */
+          text-decoration: none; /* Exemplo */
+          border-radius: 5px; /* Exemplo */
+          ">
+    Solicitar orçamento
+</a>
+
             <section class="service-card cta-card">
                 <div class="cta-content">
                     <h3>Não deixe para depois!</h3>
                     <p>Problemas construtivos identificados tardiamente podem gerar custos muito maiores. Agende sua vistoria hoje mesmo e garanta tranquilidade e economia.</p>
                     <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
                      <a href="{% url 'contato' %}" class="button primary large" 
-                     style="display: flex; /* Transforma o link em container flex */
+   style="display: flex; /* Transforma o link em container flex */
           align-items: center; /* Centraliza verticalmente o texto */
           justify-content: center; /* Centraliza horizontalmente o texto */
           text-align: center; /* Mantém por segurança */
@@ -171,7 +187,8 @@
           border-radius: 5px; /* Exemplo */
           ">
     Agendar vistoria
- </a
+</a>
+
                 </div>
             </section>
         </div>
