@@ -12,6 +12,7 @@
             <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-color);">Entre em contato via E-mail</h2>
             
             <form method="post" action="#" class="contact-form">
+                {% csrf_token %}
                 <div class="row gtr-50 gtr-uniform">
                     <div class="col-6 col-12-mobilep">
                         <input type="text" name="nome" id="nome" placeholder="Nome" required style="background-color:rgb(237, 237, 237); border-color:rgb(147, 147, 147); width: 100%;" />
@@ -20,7 +21,7 @@
                         <input type="email" name="email" id="email" placeholder="E-mail" required style="background-color: rgb(237, 237, 237); border-color: rgb(147, 147, 147); width: 100%;" />
                     </div>
                     <div class="col-6 col-12-mobilep">
-                        <input type="text" name="telefone" id="telefone" placeholder="Telefone" required style="background-color: rgb(237, 237, 237); border-colo: rgb(147, 147, 147); width: 100%;" />
+                        <input type="text" name="telefone" id="telefone" placeholder="Telefone" required style="background-color: rgb(237, 237, 237); border-color: rgb(147, 147, 147); width: 100%;" />
                     </div>
                     <div class="col-6 col-12-mobilep">
                         <input type="text" name="cidade" id="cidade" placeholder="Cidade" required style="background-color: rgb(237, 237, 237); border-color: rgb(147, 147, 147); width: 100%;" />
@@ -42,7 +43,9 @@
                     </div>
                     <div class="col-12">
                         <ul class="actions special">
-                            <li><input type="submit" value="Enviar e-mail" style="background-color: #5a7d7c; color: white; border: none; padding: 0.8rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; margin: 2rem auto; display: block;" /></li>
+                            <li>
+                                <input type="submit" value="Enviar e-mail" style="background-color: #5a7d7c; color: white; border: none; padding: 0.8rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; margin: 2rem auto; display: block;" />
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -50,10 +53,6 @@
         </div>
     </section>
 </div>
-<form method="post" action="#" class="contact-form">
-    {% csrf_token %}
-    <!-- resto do formulário -->
-</form>
 
 
 {% endblock content %}
