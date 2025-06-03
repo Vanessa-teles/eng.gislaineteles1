@@ -257,10 +257,24 @@
     <section class="box special cta-final">
         <h3>Proteja seu investimento com uma vistoria profissional</h3>
         <p>Não deixe para depois! Problemas construtivos identificados tardiamente podem gerar custos muito maiores.</p>
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: center; width: 100%; box-sizing: border-box;">
-        <a href="{% url 'contato' %}" class="button primary large" style="display: inline-block; text-align: center; width: auto; min-width: 200px;">
-        Agendar vistoria
-    </a>
+    <div <a href="{% url 'contato' %}" 
+   class="button primary large" 
+   style="display: flex; /* Transforma o link em container flex */
+          align-items: center; /* Centraliza verticalmente o texto */
+          justify-content: center; /* Centraliza horizontalmente o texto */
+          text-align: center; /* Mantém por segurança */
+          width: auto; 
+          min-width: 200px;
+          /* Adicione aqui outros estilos visuais do seu botão */
+          padding: 10px 20px; /* Exemplo */
+          background-color: #124559; /* Exemplo */
+          color: white; /* Exemplo */
+          text-decoration: none; /* Exemplo */
+          border-radius: 5px; /* Exemplo */
+          ">
+    Agendar vistoria
+</a>
+
 </div>
 
 
