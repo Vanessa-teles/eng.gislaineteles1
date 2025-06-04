@@ -8,15 +8,17 @@ class ContatoForm(forms.Form):
     assunto = forms.CharField(label=_('Assunto'), max_length=100)
     mensagem = forms.CharField(label=_('Mensagem'), widget=forms.Textarea())
     telefone = forms.CharField(label=_('Telefone'), max_length=15)
-    cidade = forms.CharField(label=_('cidade'), max_length=100)
+    cidade = forms.CharField(label=_('Cidade'), max_length=100)
+    service = forms.CharField(label=_('Serviço'), max_length=100)
 
-    def send_mail(self):
+    def sendEmail(self):
         nome = self.cleaned_data['nome']
         email = self.cleaned_data['email']
         assunto = self.cleaned_data['assunto']
         mensagem = self.cleaned_data['mensagem']
         cidade = self.cleaned_data['cidade']
         telefone = self.cleaned_data['telefone']
+        service = self.cleaned_data['service']
 
         n = _(nome)
         e = _(email)
@@ -24,14 +26,16 @@ class ContatoForm(forms.Form):
         m = _(mensagem)
         c = _(cidade)
         t = _(telefone)
+        s = _(service)
 
-        conteudo = f'NOVO CONTATO VIA E-MAIL\nNome do Cliente: {n}\nEmail informado para contato: {e}\nCidade: {c}\nTelefone informado para contato: {t}\nAssunto: {a}\nMensagem: {m}\n'
+        conteudo = f'NOVO CONTATO VIA E-MAIL\nNome do Cliente: {n}\nEmail informado para contato: {e}\nCidade: {c}\nTelefone informado para contato: {t}\nServiço solicitado: {s}\nAssunto: {a}\nMensagem: {m}\n'
 
         mail = EmailMessage(
-            subject=assunto,
+            subject=f'Novo contato: {assunto}',
             body=conteudo,
             from_email='gislaine.teles.eng@gmail.com',
-            to=['gislaine_teles@outlook.com',],
+            to=['soymichefa001@gmail.com',],
             headers={'Reply-To': email}
         )
         mail.send()
+    print('Mensagem enviada')
