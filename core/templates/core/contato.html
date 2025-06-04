@@ -5,6 +5,15 @@
 
 {% block content %}
 
+
+{% if messages %}
+    <ul class="messages" style="list-style: none; padding: 0; margin-bottom: 1rem;">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" style="padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; color: #155724; background-color: #d4edda; border-color: #c3e6cb;"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 <!-- Main Content -->
 <div class="container">
     <section class="container medium">
