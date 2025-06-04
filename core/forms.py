@@ -38,4 +38,5 @@ class ContatoForm(forms.Form):
             headers={'Reply-To': email}
         )
         mail.send()
-    print('Mensagem enviada')
+        # A linha abaixo foi indentada corretamente para pertencer ao método sendEmail
+        print('Mensagem enviada')
