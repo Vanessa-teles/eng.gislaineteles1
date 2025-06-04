@@ -11,7 +11,7 @@ def contato(request):
         form = ContatoForm(request.POST)
         if form.is_valid():
             try:
-                form.send_mail()
+                form.sendEmail()
                 messages.success(request, 'E-mail enviado com sucesso!')
                 return redirect(reverse('contato'))
             except Exception as e:
