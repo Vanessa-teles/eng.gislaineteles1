@@ -6,9 +6,9 @@ class ContatoForm(forms.Form):
     nome = forms.CharField(label=_("Nome"), max_length=100)
     email = forms.EmailField(label=_("Email"), max_length=100)
     assunto = forms.CharField(label=_("Assunto"), max_length=100)
-    mensagem = forms.CharField(label=_("Mensagem"), widget=forms.Textarea())
+    mensagem = forms.CharField(label=_("Descreva sua necessidade"), widget=forms.Textarea())
     telefone = forms.CharField(label=_("Telefone"), max_length=15)
-    cidade = forms.CharField(label=_("Cidade"), max_length=100)
+    cidade = forms.CharField(label=_("Endereço do imóvel"), max_length=100)
     # Mantemos o CharField aqui, mas poderíamos usar ChoiceField se quiséssemos validar as opções no backend
     service = forms.CharField(label=_("Serviço"), max_length=100)
 
@@ -47,7 +47,7 @@ class ContatoForm(forms.Form):
             subject=f"Novo contato: {assunto}",
             body=conteudo,
             from_email="gislaine.teles.eng@gmail.com", # Considere mover para settings.py
-            to=["soymichefa001@gmail.com"], # Considere mover para settings.py
+            to=["gislaine_teles@outlook.com"], # Considere mover para settings.py
             headers={"Reply-To": email}
         )
         mail.send()
