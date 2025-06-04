@@ -1,41 +1,37 @@
-# core/forms.py
 from django import forms
-from django.core.mail import send_mail
 from django.core.mail.message import EmailMessage
 from django.utils.translation import gettext_lazy as _
 
 class ContatoForm(forms.Form):
-    nome = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-    telefone = forms.CharField(required=True)
-    cidade = forms.CharField(required=True)
-    service = forms.ChoiceField(choices=[
-        ('', 'Selecione o serviço'),
-        ('entrega', 'Vistoria de Entrega de Chaves'),
-        ('sindico', 'Vistoria para Síndicos'),
-        ('laudo', 'Laudos Técnicos'),
-        ('outro', 'Outro serviço'),
-    ], required=True)
-    assunto = forms.CharField(required=True)
-    mensagem = forms.CharField(widget=forms.Textarea, required=True)
+    nome = forms.CharField(label=_('Nome'), max_length=100)
+    email = forms.EmailField(label=_('Email'), max_length=100)
+    assunto = forms.CharField(label=_('Assunto'), max_length=100)
+    mensagem = forms.CharField(label=_('Mensagem'), widget=forms.Textarea())
+    telefone = forms.CharField(label=_('Telefone'), max_length=15)
+    cidade = forms.CharField(label=_('cidade'), max_length=100)
 
-    def sendEmail(self):
-        # Implemente o método de envio de email aqui
-        subject = self.cleaned_data['assunto']
-        message = f"""
-        Nome: {self.cleaned_data['nome']}
-        Email: {self.cleaned_data['email']}
-        Telefone: {self.cleaned_data['telefone']}
-        Cidade: {self.cleaned_data['cidade']}
-        Serviço: {self.cleaned_data['service']}
-        
-        Mensagem:
-        {self.cleaned_data['mensagem']}
-        """
-        send_mail(
-            subject,
-            message,
-            'gislaine.teles.eng@gmail.com',  # Remetente
-            ['gislaine_teles@outlook.com'],  # Destinatário
-            fail_silently=False,
+    def send_mail(self):
+        nome = self.cleaned_data['nome']
+        email = self.cleaned_data['email']
+        assunto = self.cleaned_data['assunto']
+        mensagem = self.cleaned_data['mensagem']
+        cidade = self.cleaned_data['cidade']
+        telefone = self.cleaned_data['telefone']
+
+        n = _(nome)
+        e = _(email)
+        a = _(assunto)
+        m = _(mensagem)
+        c = _(cidade)
+        t = _(telefone)
+
+        conteudo = f'NOVO CONTATO VIA E-MAIL\nNome do Cliente: {n}\nEmail informado para contato: {e}\nCidade: {c}\nTelefone informado para contato: {t}\nAssunto: {a}\nMensagem: {m}\n'
+
+        mail = EmailMessage(
+            subject=assunto,
+            body=conteudo,
+            from_email='gislaine.teles.eng@gmail.com',
+            to=['gislaine_teles@outlook.com',],
+            headers={'Reply-To': email}
         )
+        mail.send()
