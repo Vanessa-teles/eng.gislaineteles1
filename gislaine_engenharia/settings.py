@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-gislaine-teles-engenharia-diagnostica-2025'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+ALLOWED_HOSTS = ['*',]
 
 # Application definition
 INSTALLED_APPS = [
