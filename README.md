@@ -126,3 +126,24 @@ python manage.py collectstatic
 ## Contato
 
 Para dúvidas ou suporte, entre em contato com o desenvolvedor.
+
+
+## conectar o pc ao servidor com ssh
+criar chave ssh (chave pública e privada)
+```
+ssh-keygen -t rsa -b 4096 -C "soymichefa001@gmail.com"
+```
+```
+ssh--keygen -t rsa -b 4096 -C "
+
+local que é cirado a chave pública
+```
+```
+c/Users/DELL/.ssh/id_rsa.pub
+
+
+acessar o servidor com ssh
+
+ssh root@id
+
+cat ~/.ssh/id_rsa.pub
