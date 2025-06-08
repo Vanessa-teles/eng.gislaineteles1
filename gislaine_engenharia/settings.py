@@ -14,6 +14,14 @@ SECRET_KEY = 'django-insecure-gislaine-teles-engenharia-diagnostica-2025'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Configurações de segurança para HTTPS
+SECURE_SSL_REDIRECT = True  # Redireciona HTTP para HTTPS
+SESSION_COOKIE_SECURE = True  # Cookies de sessão apenas via HTTPS
+CSRF_COOKIE_SECURE = True  # Cookies CSRF apenas via HTTPS
+SECURE_HSTS_SECONDS = 31536000  # 1 ano
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
 
 ALLOWED_HOSTS = ['engspect.com.br , 31.97.31.178' ]
 
