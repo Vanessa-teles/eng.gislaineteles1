@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-gislaine-teles-engenharia-diagnostica-2025'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['engspect.com.br , 31.97.31.178' ]
 
 # Application definition
 INSTALLED_APPS = [
