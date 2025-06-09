@@ -11,8 +11,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-gislaine-teles-engenharia-diagnostica-2025'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Configurações de produção
+DEBUG = False
+
+ALLOWED_HOSTS = ['engspect.com.br', 'www.engspect.com.br', '31.97.31.178']
 
 # Configurações de segurança para HTTPS
 SECURE_SSL_REDIRECT = True  # Redireciona HTTP para HTTPS
@@ -21,9 +23,6 @@ CSRF_COOKIE_SECURE = True  # Cookies CSRF apenas via HTTPS
 SECURE_HSTS_SECONDS = 31536000  # 1 ano
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
-
-
-ALLOWED_HOSTS = ['engspect.com.br , 31.97.31.178' ]
 
 # Application definition
 INSTALLED_APPS = [
