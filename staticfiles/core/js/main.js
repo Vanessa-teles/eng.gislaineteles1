@@ -95,7 +95,7 @@
 		}
 	});
 
-	// Animação de pulso do botão WhatsApp
+	// WhatsApp button pulse animation
 	$('.logo-float').hover(
 		function() {
 			$(this).css('animation', 'none');
