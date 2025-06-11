@@ -1,108 +1,83 @@
 /*
-	Main JS for Gislaine Teles Engenharia
-*/
-
+ * Main.js
+ * Site functionality
+ */
 (function($) {
+    var $window = $(window),
+        $body = $('body'),
+        $header = $('#header'),
+        $banner = $('#banner');
 
-	var	$window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$banner = $('#banner');
+    // Breakpoints
+    breakpoints({
+        xlarge: [ '1281px', '1680px' ],
+        large: [ '981px', '1280px' ],
+        medium: [ '737px', '980px' ],
+        small: [ '481px', '736px' ],
+        xsmall: [ null, '480px' ]
+    });
 
-	// Breakpoints.
-		breakpoints({
-			wide:      [ '1281px',  '1680px' ],
-			normal:    [ '981px',   '1280px' ],
-			narrow:    [ '737px',   '980px'  ],
-			narrower:  [ '737px',   '840px'  ],
-			mobile:    [ '481px',   '736px'  ],
-			mobilep:   [ null,      '480px'  ]
-		});
+    // Play initial animations on page load
+    $window.on('load', function() {
+        window.setTimeout(function() {
+            $body.removeClass('is-preload');
+        }, 100);
+    });
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+    // Header
+    if ($header.hasClass('alt')) {
+        $window.on('resize', function() {
+            window.setTimeout(function() {
+                if ($window.scrollTop() > 0) {
+                    $header.removeClass('alt');
+                } else {
+                    $header.addClass('alt');
+                }
+            }, 0);
+        }).trigger('resize');
 
-	// Header.
-		$banner.each(function() {
+        $window.on('scroll', function() {
+            if ($window.scrollTop() > 0) {
+                $header.removeClass('alt');
+            } else {
+                $header.addClass('alt');
+            }
+        });
+    }
 
-			var $this = $(this),
-				$header = $('#header');
+    // Banner
+    if ($banner.length > 0 && $header.hasClass('alt')) {
+        $window.on('resize', function() {
+            window.setTimeout(function() {
+                if ($window.scrollTop() > 0) {
+                    $header.removeClass('alt');
+                } else {
+                    $header.addClass('alt');
+                }
+            }, 0);
+        }).trigger('resize');
 
-			if ($header.hasClass('alt')) {
-				$window.on('resize', function() { $window.trigger('scroll'); });
+        $banner.scrollex({
+            bottom: $header.outerHeight(),
+            terminate: function() { $header.removeClass('alt'); },
+            enter: function() { $header.addClass('alt'); },
+            leave: function() { $header.removeClass('alt'); }
+        });
+    }
 
-				$this.scrollex({
-					bottom:		$header.outerHeight(),
-					terminate:	function() { $header.removeClass('alt'); },
-					enter:		function() { $header.addClass('alt'); },
-					leave:		function() { $header.removeClass('alt'); }
-				});
-			}
-
-		});
-
-	// Smooth scroll for internal links
-	$('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
-		if (
-			location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && 
-			location.hostname == this.hostname
-		) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-			if (target.length) {
-				event.preventDefault();
-				$('html, body').animate({
-					scrollTop: target.offset().top - 70
-				}, 1000);
-			}
-		}
-	});
-
-	// Mobile menu toggle
-	$('.mobile-menu-toggle').on('click', function() {
-		$('#nav').toggleClass('nav-visible');
-	});
-
-	// Form validation enhancement
-	$('form').on('submit', function() {
-		var valid = true;
-		$(this).find('input[required], textarea[required]').each(function() {
-			if (!$(this).val()) {
-				valid = false;
-				$(this).addClass('error-input');
-			} else {
-				$(this).removeClass('error-input');
-			}
-		});
-		
-		if (!valid) {
-			alert('Por favor, preencha todos os campos obrigatórios.');
-			return false;
-		}
-		return true;
-	});
-
-	// Input focus effects
-	$('input, textarea').focus(function() {
-		$(this).parent().addClass('input-focused');
-	}).blur(function() {
-		if (!$(this).val()) {
-			$(this).parent().removeClass('input-focused');
-		}
-	});
-
-	// WhatsApp button pulse animation
-	$('.logo-float').hover(
-		function() {
-			$(this).css('animation', 'none');
-		},
-		function() {
-			$(this).css('animation', 'pulse 2s infinite');
-		}
-	);
+    // Smooth scrolling for anchor links
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
 
 })(jQuery);
+

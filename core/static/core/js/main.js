@@ -1,51 +1,83 @@
-// Arquivo JS principal para o site da Gislaine Teles
-document.addEventListener('DOMContentLoaded', function() {
-    // Animação suave para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
+/*
+ * Main.js
+ * Site functionality
+ */
+(function($) {
+    var $window = $(window),
+        $body = $('body'),
+        $header = $('#header'),
+        $banner = $('#banner');
+
+    // Breakpoints
+    breakpoints({
+        xlarge: [ '1281px', '1680px' ],
+        large: [ '981px', '1280px' ],
+        medium: [ '737px', '980px' ],
+        small: [ '481px', '736px' ],
+        xsmall: [ null, '480px' ]
     });
 
-    // Destacar o item de menu ativo
-    const currentLocation = window.location.pathname;
-    const menuItems = document.querySelectorAll('#nav ul li a');
-    
-    menuItems.forEach(item => {
-        const href = item.getAttribute('href');
-        if (currentLocation.endsWith(href)) {
-            item.style.backgroundColor = 'var(--primary-color)';
-            item.style.color = 'white';
-        }
+    // Play initial animations on page load
+    $window.on('load', function() {
+        window.setTimeout(function() {
+            $body.removeClass('is-preload');
+        }, 100);
     });
 
-    // Efeito de fade-in para elementos ao rolar a página
-    const fadeElements = document.querySelectorAll('.service-description, .portfolio-image');
-    
-    function checkFade() {
-        fadeElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('visible');
+    // Header
+    if ($header.hasClass('alt')) {
+        $window.on('resize', function() {
+            window.setTimeout(function() {
+                if ($window.scrollTop() > 0) {
+                    $header.removeClass('alt');
+                } else {
+                    $header.addClass('alt');
+                }
+            }, 0);
+        }).trigger('resize');
+
+        $window.on('scroll', function() {
+            if ($window.scrollTop() > 0) {
+                $header.removeClass('alt');
+            } else {
+                $header.addClass('alt');
             }
         });
     }
 
-    // Adicionar classe para estilização CSS
-    fadeElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transition = 'opacity 0.5s ease-in-out';
+    // Banner
+    if ($banner.length > 0 && $header.hasClass('alt')) {
+        $window.on('resize', function() {
+            window.setTimeout(function() {
+                if ($window.scrollTop() > 0) {
+                    $header.removeClass('alt');
+                } else {
+                    $header.addClass('alt');
+                }
+            }, 0);
+        }).trigger('resize');
+
+        $banner.scrollex({
+            bottom: $header.outerHeight(),
+            terminate: function() { $header.removeClass('alt'); },
+            enter: function() { $header.addClass('alt'); },
+            leave: function() { $header.removeClass('alt'); }
+        });
+    }
+
+    // Smooth scrolling for anchor links
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
     });
 
-    window.addEventListener('scroll', checkFade);
-    checkFade(); // Verificar elementos visíveis no carregamento inicial
-});
+})(jQuery);
+
