@@ -67,7 +67,7 @@
 		$('#nav').toggleClass('nav-visible');
 	});
 
-	// Form validation enhancement
+	// Aprimoramento de validação de formulário
 	$('form').on('submit', function() {
 		var valid = true;
 		$(this).find('input[required], textarea[required]').each(function() {
@@ -86,7 +86,7 @@
 		return true;
 	});
 
-	// Input focus effects
+	// Efeitos de foco de entrada
 	$('input, textarea').focus(function() {
 		$(this).parent().addClass('input-focused');
 	}).blur(function() {
