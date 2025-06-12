@@ -67,7 +67,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gislaine_engenharia.wsgi.application'
 
-# Database
+# Banco de dados
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
