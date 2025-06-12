@@ -3,28 +3,87 @@
 <html lang="pt-br">
 	<head>
 		<title>{% block title %}Vistorias Técnicas Especializadas - Eng. Gislaine Teles{% endblock %}</title>
-		    <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="57x57" href="{% static 'core/images/apple-icon-57x57.png' %}">
-<link rel="apple-touch-icon" sizes="60x60" href="{% static 'core/images/apple-icon-60x60.png' %}">
-<link rel="apple-touch-icon" sizes="72x72" href="{% static 'core/images/apple-icon-72x72.png' %}">
-<link rel="apple-touch-icon" sizes="76x76" href="{% static 'core/images/apple-icon-76x76.png' %}">
-<link rel="apple-touch-icon" sizes="114x114" href="{% static 'core/images/apple-icon-114x114.png' %}">
-<link rel="apple-touch-icon" sizes="120x120" href="{% static 'core/images/apple-icon-120x120.png' %}">
-<link rel="apple-touch-icon" sizes="144x144" href="{% static 'core/images/apple-icon-144x144.png' %}">
-<link rel="apple-touch-icon" sizes="152x152" href="{% static 'core/images/apple-icon-152x152.png' %}">
-<link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/apple-icon-180x180.png' %}">
-<link rel="icon" type="image/png" sizes="192x192" href="{% static 'core/images/android-icon-192x192.png' %}">
-<link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicon-32x32.png' %}">
-<link rel="icon" type="image/png" sizes="96x96" href="{% static 'core/images/favicon-96x96.png' %}">
-<link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicon-16x16.png' %}">
-<link rel="manifest" href="{% static 'core/images/manifest.json' %}">
-<meta name="msapplication-TileColor" content="#ffffff">
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="57x57" href="{% static 'core/images/apple-icon-57x57.png' %}">
+		<link rel="apple-touch-icon" sizes="60x60" href="{% static 'core/images/apple-icon-60x60.png' %}">
+		<link rel="apple-touch-icon" sizes="72x72" href="{% static 'core/images/apple-icon-72x72.png' %}">
+		<link rel="apple-touch-icon" sizes="76x76" href="{% static 'core/images/apple-icon-76x76.png' %}">
+		<link rel="apple-touch-icon" sizes="114x114" href="{% static 'core/images/apple-icon-114x114.png' %}">
+		<link rel="apple-touch-icon" sizes="120x120" href="{% static 'core/images/apple-icon-120x120.png' %}">
+		<link rel="apple-touch-icon" sizes="144x144" href="{% static 'core/images/apple-icon-144x144.png' %}">
+		<link rel="apple-touch-icon" sizes="152x152" href="{% static 'core/images/apple-icon-152x152.png' %}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/apple-icon-180x180.png' %}">
+		<link rel="icon" type="image/png" sizes="192x192" href="{% static 'core/images/android-icon-192x192.png' %}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicon-32x32.png' %}">
+		<link rel="icon" type="image/png" sizes="96x96" href="{% static 'core/images/favicon-96x96.png' %}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicon-16x16.png' %}">
+		<link rel="manifest" href="{% static 'core/images/manifest.json' %}">
+		<meta name="msapplication-TileColor" content="#ffffff">
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- CSS via CDN e local -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+		<style>
+			/* Estilos CSS inline para garantir carregamento */
+			:root {
+			  --primary-color: #1a5f7a;
+			  --primary-dark: #124559;
+			  --accent-color: #ffc107;
+			  --secondary-color: #598392;
+			  --highlight-color: #0d3b49;
+			  --decorative-color: #e6b000;
+			  --light-bg: #e4e4e4;
+			  --dark-bg: #0d3b49;
+			  --text-color: #333333;
+			  --contact-bg: #f5f7f9;
+			}
+			
+			body {
+			  color: var(--text-color );
+			  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			  background-color: #f0f0f0;
+			  margin: 0;
+			  padding: 0;
+			}
+			
+			/* WhatsApp Floating Button */
+			.whatsapp-float {
+			  position: fixed;
+			  width: 60px;
+			  height: 60px;
+			  bottom: 30px;
+			  right: 30px;
+			  background-color: #25d366;
+			  color: white;
+			  border-radius: 50%;
+			  text-align: center;
+			  font-size: 30px;
+			  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+			  z-index: 100;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  text-decoration: none;
+			  border-bottom: none;
+			  transition: all 0.3s ease;
+			  animation: pulse 2s infinite;
+			}
+			
+			@keyframes pulse {
+			  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+			  70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+			  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+			}
+			
+			.whatsapp-float:hover {
+			  transform: scale(1.1);
+			  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+			}
+		</style>
 		<link rel="stylesheet" type="text/css" href="{% static 'core/css/main.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'core/css/custom.css' %}">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 	</head>
 	<body class="landing is-preload">
 		<div id="page-wrapper">
@@ -41,26 +100,24 @@
             {% endblock content %}
             
             <!-- Footer -->
-<footer style="background-color: #f5f5f5; padding: 2rem 0; text-align: center; margin-top: 3rem; width: 100%;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
-            <a href="https://www.instagram.com/eng.gislaineteles" target="_blank" style="color: #1a5f7a; font-size: 1.5rem; text-decoration: none;">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:gislaine.teles.eng@gmail.com" style="color: #1a5f7a; font-size: 1.5rem; text-decoration: none;">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." target="_blank" style="color: #1a5f7a; font-size: 1.5rem; text-decoration: none;">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
-        <div style="font-size: 0.9rem; color: #777; text-align: center;">
-            &copy; Gislaine Teles. Todos os direitos reservados. CREA nº 5070847342-SP
-        </div>
-    </div>
-</footer>
-
-
+			<footer style="background-color: #f5f5f5; padding: 2rem 0; text-align: center; margin-top: 3rem; width: 100%;">
+				<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+					<div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
+						<a href="https://www.instagram.com/eng.gislaineteles" target="_blank" style="color: #1a5f7a; font-size: 1.5rem; text-decoration: none;">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a href="mailto:gislaine.teles.eng@gmail.com" style="color: #1a5f7a; font-size: 1.5rem; text-decoration: none;">
+							<i class="fas fa-envelope"></i>
+						</a>
+						<a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." target="_blank" style="color: #1a5f7a; font-size: 1.5rem; text-decoration: none;">
+							<i class="fab fa-whatsapp"></i>
+						</a>
+					</div>
+					<div style="font-size: 0.9rem; color: #777; text-align: center;">
+						&copy; Gislaine Teles. Todos os direitos reservados. CREA nº 5070847342-SP
+					</div>
+				</div>
+			</footer>
 
 			<!-- WhatsApp Floating Button -->
 			<a href="https://wa.me/5511985796256/?text=Olá, gostaria de saber mais informações sobre seus serviços." class="whatsapp-float" target="_blank">
@@ -68,10 +125,12 @@
 			</a>
 
 		</div>
-		<!-- Scripts -->
-		<script src="{% static 'core/js/jquery.min.js' %}"></script>
-		<script src="{% static 'core/js/jquery.dropotron.min.js' %}"></script>
-		<script src="{% static 'core/js/jquery.scrollex.min.js' %}"></script>
+		<!-- Scripts via CDN -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.dropotron/1.4.3/jquery.dropotron.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollex/0.2.1/jquery.scrollex.min.js"></script>
+		
+		<!-- Scripts locais -->
 		<script src="{% static 'core/js/browser.min.js' %}"></script>
 		<script src="{% static 'core/js/breakpoints.min.js' %}"></script>
 		<script src="{% static 'core/js/util.js' %}"></script>
