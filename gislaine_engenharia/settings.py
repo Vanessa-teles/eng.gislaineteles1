@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-gislaine-teles-engenharia-diagnostica-2025'
 # Configurações de produção
 DEBUG = False
 
-ALLOWED_HOSTS = ['engspect.com.br', 'www.engspect.com.br', '31.97.31.178']
+ALLOWED_HOSTS = ['engspect.com.br', 'www.engspect.com.br', '31.97.31.178', 'localhost', '127.0.0.1']
 
 # Configurações de segurança para HTTPS
 SECURE_SSL_REDIRECT = True  # Redireciona HTTP para HTTPS
@@ -23,6 +23,14 @@ CSRF_COOKIE_SECURE = True  # Cookies CSRF apenas via HTTPS
 SECURE_HSTS_SECONDS = 31536000  # 1 ano
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
+# Configurações de proxy
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://engspect.com.br',
+    'https://www.engspect.com.br'
+]
 
 # Application definition
 INSTALLED_APPS = [
