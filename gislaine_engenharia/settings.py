@@ -28,8 +28,12 @@ USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://engspect.com.br',
-    'https://www.engspect.com.br'
+     'https://engspect.com.br',
+    'https://www.engspect.com.br',
+    'http://engspect.com.br',
+    'http://www.engspect.com.br',
+    'https://31.97.31.178',
+    'http://31.97.31.178'
 ]
 
 # Application definition
