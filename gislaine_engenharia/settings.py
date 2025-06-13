@@ -14,27 +14,8 @@ SECRET_KEY = 'django-insecure-gislaine-teles-engenharia-diagnostica-2025'
 # Configurações de produção
 DEBUG = False
 
-ALLOWED_HOSTS = ['engspect.com.br', 'www.engspect.com.br', '31.97.31.178']
+ALLOWED_HOSTS = ['*']
 
-# Configurações de segurança para HTTPS
-SECURE_SSL_REDIRECT = True  # Redireciona HTTP para HTTPS
-SESSION_COOKIE_SECURE = True  # Cookies de sessão apenas via HTTPS
-CSRF_COOKIE_SECURE = True  # Cookies CSRF apenas via HTTPS
-SECURE_HSTS_SECONDS = 31536000  # 1 ano
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-# Configurações de proxy
-USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-CSRF_TRUSTED_ORIGINS = [
-     'https://engspect.com.br',
-    'https://www.engspect.com.br',
-    'http://engspect.com.br',
-    'http://www.engspect.com.br',
-    'https://31.97.31.178',
-    'http://31.97.31.178'
-]
 
 # Application definition
 INSTALLED_APPS = [
@@ -83,7 +64,7 @@ WSGI_APPLICATION = 'gislaine_engenharia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gislaine_engenharia',
+        'NAME': 'mydb',
         'USER': 'gislaine_user',
         'PASSWORD': 'Amoaday@#&001',
         'HOST': 'localhost',
