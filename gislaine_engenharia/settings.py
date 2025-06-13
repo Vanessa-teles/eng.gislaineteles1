@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-gislaine-teles-engenharia-diagnostica-2025'
 # Configurações de produção
 DEBUG = False
 
-ALLOWED_HOSTS = ['engspect.com.br', 'www.engspect.com.br', '31.97.31.178', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['engspect.com.br', 'www.engspect.com.br', '31.97.31.178']
 
 # Configurações de segurança para HTTPS
 SECURE_SSL_REDIRECT = True  # Redireciona HTTP para HTTPS
